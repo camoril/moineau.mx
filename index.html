@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MOINEAU — Estudio de arte y joyería</title>
+	<meta name="description" content="MOINEAU es un estudio de arte y joyería contemporánea.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg: #000000;
+			--text: #f4f4f4;
+			--muted: #cccccc;
+			--line: #2b2b2b;
+		}
+
+		html[data-theme="light"] {
+			--bg: #ffffff;
+			--text: #111111;
+			--muted: #3f3f3f;
+			--line: #d9d9d9;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			line-height: 1.6;
+			letter-spacing: 0.01em;
+		}
+
+		.container {
+			width: min(1080px, 92vw);
+			margin: 0 auto;
+		}
+
+		.topbar {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 0.6rem;
+			padding: 1.2rem 0;
+		}
+
+		.lang-switch,
+		.theme-switch {
+			border: 1px solid var(--line);
+			background: transparent;
+			color: var(--text);
+			font: inherit;
+			padding: 0.45rem 0.9rem;
+			cursor: pointer;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			font-size: 0.75rem;
+		}
+
+		.lang-switch:hover,
+		.theme-switch:hover {
+			background: var(--text);
+			color: var(--bg);
+		}
+
+		.lang-switch:focus-visible,
+		.theme-switch:focus-visible {
+			outline: 2px solid var(--text);
+			outline-offset: 2px;
+		}
+
+		.hero {
+			min-height: auto;
+			display: grid;
+			align-items: center;
+			gap: 0;
+			padding: 1.25rem 0 2.5rem;
+		}
+
+		.hero-logo {
+			width: min(360px, 65vw);
+			display: block;
+			margin: 0 auto;
+			filter: invert(1) grayscale(1);
+		}
+
+		html[data-theme="light"] .hero-logo {
+			filter: none;
+		}
+
+		.manifesto {
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: center;
+			font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+			line-height: 1.9;
+		}
+
+		.manifesto strong {
+			display: block;
+			margin: 1.2rem 0;
+			font-family: "Cormorant Garamond", Georgia, serif;
+			font-size: clamp(1.5rem, 3vw, 2rem);
+			font-weight: 500;
+			letter-spacing: 0.05em;
+		}
+
+		section {
+			padding: 4rem 0;
+		}
+
+		h2 {
+			margin: 0 0 1rem;
+			font-family: "Cormorant Garamond", Georgia, serif;
+			font-size: clamp(2rem, 5vw, 2.75rem);
+			font-weight: 500;
+			letter-spacing: 0.02em;
+		}
+
+		p {
+			margin: 0 0 1rem;
+			color: var(--muted);
+			font-size: 1rem;
+		}
+
+		.hero .statement {
+			max-width: 760px;
+			margin: 1.75rem auto 0;
+		}
+
+		.statement-block {
+			text-align: center;
+		}
+
+		.statement-block p {
+			font-size: clamp(1rem, 1.9vw, 1.2rem);
+			line-height: 2;
+			color: var(--text);
+			margin-bottom: 1.2rem;
+		}
+
+		.statement-block strong {
+			display: block;
+			margin: 1.3rem 0;
+			font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+			font-weight: 500;
+			letter-spacing: 0.04em;
+		}
+
+		.foot {
+			padding: 2rem 0 2.5rem;
+			font-size: 0.84rem;
+			color: var(--muted);
+			text-align: center;
+		}
+
+		.visually-hidden {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+		}
+
+		@media (max-width: 720px) {
+			.hero {
+				min-height: auto;
+				padding-top: 1rem;
+			}
+
+			section {
+				padding: 3rem 0;
+			}
+		}
+
+		@media (max-width: 420px) {
+			.topbar {
+				justify-content: center;
+				padding-top: 0.9rem;
+			}
+
+			.lang-switch,
+			.theme-switch {
+				padding: 0.4rem 0.7rem;
+				font-size: 0.7rem;
+			}
+
+			.hero .statement {
+				margin-top: 1.25rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header class="topbar" role="toolbar" aria-label="Controles de sitio">
+			<button class="theme-switch" id="themeSwitch" type="button" aria-label="Cambiar tema" aria-pressed="false">LIGHT</button>
+			<button class="lang-switch" id="langSwitch" type="button" aria-label="Cambiar idioma" aria-pressed="false">ES / EN</button>
+		</header>
+
+		<main>
+			<section class="hero" aria-labelledby="main-entry-title">
+				<h1 id="main-entry-title" class="visually-hidden">MOINEAU</h1>
+				<img class="hero-logo" src="logo.svg" alt="Logo MOINEAU">
+				<div class="statement" aria-label="Texto manifiesto">
+					<article class="statement-block">
+						<p data-i18n="statement.line1">Salvaguardadas por lo virtuoso y lo metafísico.</p>
+						<p data-i18n="statement.line2">Historias de los astros y de la sangre, de aquellos lugares en donde patrones permanecen ocultos hasta que la percepción se agudiza.</p>
+						<p data-i18n="statement.line3">Una arquitectura íntima que irrumpe en el plano mundano. Así, el espacio deja de ser meramente cuantitativo y permite ubicarse.</p>
+						<strong data-i18n="statement.title">ESTO NO ES ARTE</strong>
+						<p data-i18n="statement.line4">La revelación no se contrapone a la estructura o los sistemas.</p>
+					</article>
+				</div>
+			</section>
+
+		</main>
+
+	</div>
+
+	<script>
+		const i18n = {
+			es: {
+				"statement.line1": "Salvaguardadas por lo virtuoso y lo metafísico.",
+				"statement.line2": "Historias de los astros y de la sangre, de aquellos lugares en donde patrones permanecen ocultos hasta que la percepción se agudiza.",
+				"statement.line3": "Una arquitectura íntima que irrumpe en el plano mundano. Así, el espacio deja de ser meramente cuantitativo y permite ubicarse.",
+				"statement.title": "ESTO NO ES ARTE",
+				"statement.line4": "La revelación no se contrapone a la estructura o los sistemas.",
+				"doc.title": "MOINEAU — Estudio de arte y joyería"
+			},
+			en: {
+				"statement.line1": "Held with the virtuous and metaphysical.",
+				"statement.line2": "Stories from the stars and blood, the fields in which patterns hide until perception sharpens.",
+				"statement.line3": "When intimate architecture rupture-in the fabric of the ordinary. So space ceases to be merely measurable and becomes oriented.",
+				"statement.title": "THIS IS NOT ART.",
+				"statement.line4": "Revelation is not opposed to structure or system.",
+				"doc.title": "MOINEAU — Art & Jewelry Studio"
+			}
+		};
+
+		let currentLang = "en";
+		let currentTheme = localStorage.getItem("moineauTheme") || "dark";
+		const themeSwitch = document.getElementById("themeSwitch");
+		const langSwitch = document.getElementById("langSwitch");
+
+		function updateControlAria() {
+			themeSwitch.setAttribute("aria-pressed", currentTheme === "light" ? "true" : "false");
+			langSwitch.setAttribute("aria-pressed", currentLang === "es" ? "true" : "false");
+
+			if (currentLang === "en") {
+				themeSwitch.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+				langSwitch.setAttribute("aria-label", "Switch language");
+			} else {
+				themeSwitch.setAttribute("aria-label", currentTheme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+				langSwitch.setAttribute("aria-label", "Cambiar idioma");
+			}
+		}
+
+		function applyTheme(theme) {
+			currentTheme = theme;
+			document.documentElement.setAttribute("data-theme", theme);
+			localStorage.setItem("moineauTheme", theme);
+			themeSwitch.textContent = theme === "dark" ? "LIGHT" : "DARK";
+			updateControlAria();
+		}
+
+		function applyLanguage(lang) {
+			const dict = i18n[lang];
+			currentLang = lang;
+			document.documentElement.lang = lang;
+			document.title = dict["doc.title"];
+
+			document.querySelectorAll("[data-i18n]").forEach((el) => {
+				const key = el.getAttribute("data-i18n");
+				if (dict[key]) {
+					el.textContent = dict[key];
+				}
+			});
+
+			document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+				const key = el.getAttribute("data-i18n-placeholder");
+				if (dict[key]) {
+					el.setAttribute("placeholder", dict[key]);
+				}
+			});
+
+			updateControlAria();
+		}
+
+		langSwitch.addEventListener("click", () => {
+			currentLang = currentLang === "es" ? "en" : "es";
+			applyLanguage(currentLang);
+		});
+
+		themeSwitch.addEventListener("click", () => {
+			applyTheme(currentTheme === "dark" ? "light" : "dark");
+		});
+
+		applyTheme(currentTheme);
+		applyLanguage(currentLang);
+	</script>
+</body>
+</html>
