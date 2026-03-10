@@ -239,7 +239,14 @@
 			}
 
 			.hero .statement {
-				margin-top: 8.5rem;
+				display: none;
+				margin-top: 0;
+			}
+
+			.hero.mobile-text-visible .statement {
+				display: block;
+				margin-top: 2.8rem;
+				animation: revealText 0.35s ease;
 			}
 
 			.mobile-scroll-cta {
@@ -292,7 +299,11 @@
 			}
 
 			.hero .statement {
-				margin-top: 7.2rem;
+				margin-top: 0;
+			}
+
+			.hero.mobile-text-visible .statement {
+				margin-top: 2.35rem;
 			}
 		}
 
@@ -307,6 +318,17 @@
 			}
 			100% {
 				opacity: 0.72;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes revealText {
+			from {
+				opacity: 0;
+				transform: translateY(10px);
+			}
+			to {
+				opacity: 1;
 				transform: translateY(0);
 			}
 		}
@@ -328,7 +350,7 @@
 						<img class="hero-logo" src="logo3.svg" alt="Logo MOINEAU">
 					</picture>
 				</div>
-				<button class="mobile-scroll-cta" id="mobileScrollCta" type="button" data-i18n="cta.scroll">Ver texto</button>
+				<button class="mobile-scroll-cta" id="mobileScrollCta" type="button" aria-controls="manifestoText" aria-expanded="false" data-i18n="cta.scroll">Ver texto</button>
 				<div class="statement" id="manifestoText" aria-label="Texto manifiesto">
 					<article class="statement-block">
 						<p data-i18n="statement.line1">Salvaguardadas por lo virtuoso y lo metafísico.</p>
@@ -388,6 +410,7 @@
 		let currentTheme = localStorage.getItem("moineauTheme") || "dark";
 		const themeSwitch = document.getElementById("themeSwitch");
 		const langSwitch = document.getElementById("langSwitch");
+		const heroSection = document.querySelector(".hero");
 		const mobileScrollCta = document.getElementById("mobileScrollCta");
 		const manifestoText = document.getElementById("manifestoText");
 		const emailLink = document.getElementById("emailLink");
@@ -456,7 +479,12 @@
 
 		mobileScrollCta.addEventListener("click", () => {
 			if (window.matchMedia("(max-width: 720px)").matches) {
-				manifestoText.scrollIntoView({ behavior: "smooth", block: "start" });
+				heroSection.classList.add("mobile-text-visible");
+				mobileScrollCta.setAttribute("aria-expanded", "true");
+				mobileScrollCta.hidden = true;
+				setTimeout(() => {
+					manifestoText.scrollIntoView({ behavior: "smooth", block: "start" });
+				}, 60);
 			}
 		});
 
