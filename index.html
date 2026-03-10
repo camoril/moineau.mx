@@ -398,7 +398,7 @@
 			},
 			en: {
 				"statement.line1": "Held with the virtuous and metaphysical.",
-				"statement.line2": "Stories from the stars and blood, the fields in which patterns hide until perception sharpens.",
+			"statement.line2": "Stories from the stars and blood, the fields in which patterns hide<br>until perception sharpens.",
 				"statement.line3": "When intimate architecture rupture-in the fabric of the ordinary. So space ceases to be merely measurable and becomes oriented.",
 				"statement.title": "THIS IS NOT ART",
 				"statement.line4": "Revelation is not opposed to structure or system.",
@@ -464,7 +464,7 @@
 			document.querySelectorAll("[data-i18n]").forEach((el) => {
 				const key = el.getAttribute("data-i18n");
 				if (dict[key]) {
-					el.textContent = dict[key];
+					el.innerHTML = dict[key];
 				}
 			});
 
