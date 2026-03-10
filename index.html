@@ -19,13 +19,13 @@
 
 		:root {
 			--bg: #000000;
-			--text: #f4f4f4;
-			--muted: #cccccc;
+			--text: #ecece0;
+			--muted: #c7c7bb;
 			--line: #2b2b2b;
 		}
 
 		html[data-theme="light"] {
-			--bg: #ffffff;
+			--bg: #ecece0;
 			--text: #111111;
 			--muted: #3f3f3f;
 			--line: #d9d9d9;
@@ -91,11 +91,20 @@
 			padding: 1.25rem 0 2.5rem;
 		}
 
+		.hero-logo-wrap {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
 		.hero-logo {
-			width: min(360px, 65vw);
+			width: min(430px, 74vw);
 			display: block;
 			margin: 0 auto;
-			filter: invert(1) grayscale(1);
+			/* Compensates a slightly off-center SVG artboard from the source file. */
+			transform: translateX(7px);
+			/* Warm off-white tint for dark theme, closer to #ecece0 than pure white. */
+			filter: brightness(0) saturate(100%) invert(91%) sepia(18%) saturate(235%) hue-rotate(12deg) brightness(103%) contrast(92%);
 		}
 
 		html[data-theme="light"] .hero-logo {
@@ -161,6 +170,42 @@
 			letter-spacing: 0.04em;
 		}
 
+		.contact-actions {
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			margin-top: 1.4rem;
+		}
+
+		.contact-icon {
+			width: 48px;
+			height: 48px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid var(--line);
+			color: var(--text);
+			text-decoration: none;
+			transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+		}
+
+		.contact-icon svg {
+			width: 21px;
+			height: 21px;
+			fill: currentColor;
+		}
+
+		.contact-icon:hover {
+			background: var(--text);
+			color: var(--bg);
+			transform: translateY(-2px);
+		}
+
+		.contact-icon:focus-visible {
+			outline: 2px solid var(--text);
+			outline-offset: 2px;
+		}
+
 		.foot {
 			padding: 2rem 0 2.5rem;
 			font-size: 0.84rem;
@@ -196,6 +241,10 @@
 				padding-top: 0.9rem;
 			}
 
+			.hero-logo {
+				transform: translateX(4px);
+			}
+
 			.lang-switch,
 			.theme-switch {
 				padding: 0.4rem 0.7rem;
@@ -218,7 +267,9 @@
 		<main>
 			<section class="hero" aria-labelledby="main-entry-title">
 				<h1 id="main-entry-title" class="visually-hidden">MOINEAU</h1>
-				<img class="hero-logo" src="logo.svg" alt="Logo MOINEAU">
+				<div class="hero-logo-wrap">
+					<img class="hero-logo" src="logo.svg" alt="Logo MOINEAU">
+				</div>
 				<div class="statement" aria-label="Texto manifiesto">
 					<article class="statement-block">
 						<p data-i18n="statement.line1">Salvaguardadas por lo virtuoso y lo metafísico.</p>
@@ -226,6 +277,20 @@
 						<p data-i18n="statement.line3">Una arquitectura íntima que irrumpe en el plano mundano. Así, el espacio deja de ser meramente cuantitativo y permite ubicarse.</p>
 						<strong data-i18n="statement.title">ESTO NO ES ARTE</strong>
 						<p data-i18n="statement.line4">La revelación no se contrapone a la estructura o los sistemas.</p>
+						<div class="contact-actions" aria-label="Acciones de contacto">
+							<a class="contact-icon" id="emailLink" href="mailto:contact@moineau.mx" aria-label="Enviar correo a contact@moineau.mx" title="Correo">
+								<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+									<path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm1.8.5L12 12.2 20.2 6H3.8ZM21 7.2l-6.4 4.85L21 17V7.2ZM20.2 18l-6.76-5.12-1.14.86a.5.5 0 0 1-.6 0l-1.14-.86L3.8 18h16.4ZM3 17l6.4-4.95L3 7.2V17Z"/>
+								</svg>
+								<span class="visually-hidden" data-i18n="contact.email">Enviar correo</span>
+							</a>
+							<a class="contact-icon" id="instagramLink" href="https://www.instagram.com/moineau.mx" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de MOINEAU" title="Instagram">
+								<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+									<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.8A3.7 3.7 0 0 0 3.8 7.5v9a3.7 3.7 0 0 0 3.7 3.7h9a3.7 3.7 0 0 0 3.7-3.7v-9a3.7 3.7 0 0 0-3.7-3.7h-9Zm9.7 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/>
+								</svg>
+								<span class="visually-hidden" data-i18n="contact.instagram">Abrir Instagram</span>
+							</a>
+						</div>
 					</article>
 				</div>
 			</section>
@@ -242,6 +307,8 @@
 				"statement.line3": "Una arquitectura íntima que irrumpe en el plano mundano. Así, el espacio deja de ser meramente cuantitativo y permite ubicarse.",
 				"statement.title": "ESTO NO ES ARTE",
 				"statement.line4": "La revelación no se contrapone a la estructura o los sistemas.",
+				"contact.email": "Enviar correo",
+				"contact.instagram": "Abrir Instagram",
 				"doc.title": "MOINEAU — Estudio de arte y joyería"
 			},
 			en: {
@@ -250,6 +317,8 @@
 				"statement.line3": "When intimate architecture rupture-in the fabric of the ordinary. So space ceases to be merely measurable and becomes oriented.",
 				"statement.title": "THIS IS NOT ART",
 				"statement.line4": "Revelation is not opposed to structure or system.",
+				"contact.email": "Send email",
+				"contact.instagram": "Open Instagram",
 				"doc.title": "MOINEAU — Art & Jewelry Studio"
 			}
 		};
@@ -258,6 +327,8 @@
 		let currentTheme = localStorage.getItem("moineauTheme") || "dark";
 		const themeSwitch = document.getElementById("themeSwitch");
 		const langSwitch = document.getElementById("langSwitch");
+		const emailLink = document.getElementById("emailLink");
+		const instagramLink = document.getElementById("instagramLink");
 
 		function updateControlAria() {
 			themeSwitch.setAttribute("aria-pressed", currentTheme === "light" ? "true" : "false");
@@ -266,9 +337,17 @@
 			if (currentLang === "en") {
 				themeSwitch.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
 				langSwitch.setAttribute("aria-label", "Switch language");
+				emailLink.setAttribute("aria-label", "Send email to contact@moineau.mx");
+				emailLink.setAttribute("title", "Email");
+				instagramLink.setAttribute("aria-label", "Open MOINEAU Instagram");
+				instagramLink.setAttribute("title", "Instagram");
 			} else {
 				themeSwitch.setAttribute("aria-label", currentTheme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
 				langSwitch.setAttribute("aria-label", "Cambiar idioma");
+				emailLink.setAttribute("aria-label", "Enviar correo a contact@moineau.mx");
+				emailLink.setAttribute("title", "Correo");
+				instagramLink.setAttribute("aria-label", "Abrir Instagram de MOINEAU");
+				instagramLink.setAttribute("title", "Instagram");
 			}
 		}
 
