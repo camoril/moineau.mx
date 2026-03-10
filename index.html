@@ -97,6 +97,10 @@
 			width: 100%;
 		}
 
+		.mobile-scroll-cta {
+			display: none;
+		}
+
 		.hero-logo {
 			width: min(500px, 72vw);
 			display: block;
@@ -229,12 +233,41 @@
 			}
 
 			.hero {
-				min-height: auto;
+				min-height: calc(100vh - 3.5rem);
 				padding-top: 0.5rem;
+				align-content: start;
 			}
 
 			.hero .statement {
-				margin-top: 2.4rem;
+				margin-top: 8.5rem;
+			}
+
+			.mobile-scroll-cta {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.45rem;
+				margin: 0.9rem auto 0;
+				padding: 0.55rem 0.95rem;
+				border: 1px solid var(--line);
+				background: transparent;
+				color: var(--text);
+				font: inherit;
+				font-size: 0.72rem;
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+				cursor: pointer;
+				animation: ctaPulse 1.8s ease-in-out infinite;
+			}
+
+			.mobile-scroll-cta::after {
+				content: "↓";
+				font-size: 0.88rem;
+			}
+
+			.mobile-scroll-cta:focus-visible {
+				outline: 2px solid var(--text);
+				outline-offset: 2px;
 			}
 
 			section {
@@ -259,7 +292,22 @@
 			}
 
 			.hero .statement {
-				margin-top: 2.1rem;
+				margin-top: 7.2rem;
+			}
+		}
+
+		@keyframes ctaPulse {
+			0% {
+				opacity: 0.72;
+				transform: translateY(0);
+			}
+			50% {
+				opacity: 1;
+				transform: translateY(3px);
+			}
+			100% {
+				opacity: 0.72;
+				transform: translateY(0);
 			}
 		}
 	</style>
@@ -280,7 +328,8 @@
 						<img class="hero-logo" src="logo3.svg" alt="Logo MOINEAU">
 					</picture>
 				</div>
-				<div class="statement" aria-label="Texto manifiesto">
+				<button class="mobile-scroll-cta" id="mobileScrollCta" type="button" data-i18n="cta.scroll">Ver texto</button>
+				<div class="statement" id="manifestoText" aria-label="Texto manifiesto">
 					<article class="statement-block">
 						<p data-i18n="statement.line1">Salvaguardadas por lo virtuoso y lo metafísico.</p>
 						<p data-i18n="statement.line2">Historias de los astros y de la sangre, de aquellos lugares en donde patrones permanecen ocultos hasta que la percepción se agudiza.</p>
@@ -317,6 +366,7 @@
 				"statement.line3": "Una arquitectura íntima que irrumpe en el plano mundano. Así, el espacio deja de ser meramente cuantitativo y permite ubicarse.",
 				"statement.title": "ESTO NO ES ARTE",
 				"statement.line4": "La revelación no se contrapone a la estructura o los sistemas.",
+				"cta.scroll": "Ver texto",
 				"contact.email": "Enviar correo",
 				"contact.instagram": "Abrir Instagram",
 				"doc.title": "MOINEAU — Estudio de arte y joyería"
@@ -327,6 +377,7 @@
 				"statement.line3": "When intimate architecture rupture-in the fabric of the ordinary. So space ceases to be merely measurable and becomes oriented.",
 				"statement.title": "THIS IS NOT ART",
 				"statement.line4": "Revelation is not opposed to structure or system.",
+				"cta.scroll": "Read text",
 				"contact.email": "Send email",
 				"contact.instagram": "Open Instagram",
 				"doc.title": "MOINEAU — Art & Jewelry Studio"
@@ -337,6 +388,8 @@
 		let currentTheme = localStorage.getItem("moineauTheme") || "dark";
 		const themeSwitch = document.getElementById("themeSwitch");
 		const langSwitch = document.getElementById("langSwitch");
+		const mobileScrollCta = document.getElementById("mobileScrollCta");
+		const manifestoText = document.getElementById("manifestoText");
 		const emailLink = document.getElementById("emailLink");
 		const instagramLink = document.getElementById("instagramLink");
 
@@ -399,6 +452,12 @@
 
 		themeSwitch.addEventListener("click", () => {
 			applyTheme(currentTheme === "dark" ? "light" : "dark");
+		});
+
+		mobileScrollCta.addEventListener("click", () => {
+			if (window.matchMedia("(max-width: 720px)").matches) {
+				manifestoText.scrollIntoView({ behavior: "smooth", block: "start" });
+			}
 		});
 
 		applyTheme(currentTheme);
