@@ -11,9 +11,30 @@
    viewBox="0 0 87.029999 21.936768"
    enable-background="new 0 0 160 160"
    xml:space="preserve"
+   sodipodi:docname="logo2.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"><defs
+   xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="256"
+   inkscape:cx="58.439453"
+   inkscape:cy="6.2988281"
+   inkscape:window-width="2560"
+   inkscape:window-height="1382"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" /><defs
    id="defs19" />
 <switch
    id="switch19"
@@ -62,8 +83,10 @@
    stroke="#000000"
    stroke-width="0.25"
    stroke-miterlimit="10"
-   d="m 96.768,74.813 v -3.226 c 0,-0.072 0.06,-0.131 0.133,-0.131 h 0.829 c 0.072,0 0.131,0.059 0.131,0.131 v 18.817 c 0,0.07 -0.059,0.131 -0.131,0.131 H 96.9 c -0.073,0 -0.133,-0.061 -0.133,-0.131 V 78.93 c -0.078,-1.045 -0.265,-2.182 -0.792,-3.149 -0.57,-1.064 -1.505,-2.298 -2.951,-2.996 -0.088,-0.038 -0.188,0.024 -0.188,0.119 v 17.501 c 0,0.07 -0.059,0.131 -0.132,0.131 h -0.958 c -0.073,0 -0.134,-0.061 -0.134,-0.131 V 71.582 c 0,-0.071 0.061,-0.134 0.134,-0.135 0.615,-0.009 3.327,0.144 5.022,3.366"
-   id="path3" />
+   d="m 96.760187,74.793469 v -3.226 c 0,-0.072 0.06781,-0.111469 0.140813,-0.111469 h 0.829 c 0.072,0 0.131,0.059 0.131,0.131 v 18.817 c 0,0.07 -0.059,0.131 -0.131,0.131 H 96.9 c -0.073,0 -0.133,-0.061 -0.133,-0.131 V 78.93 c -0.078,-1.045 -0.265,-2.182 -0.792,-3.149 -0.57,-1.064 -1.505,-2.298 -2.951,-2.996 -0.088,-0.038 -0.188,0.024 -0.188,0.119 v 17.501 c 0,0.07 -0.059,0.131 -0.132,0.131 h -0.958 c -0.073,0 -0.134,-0.061 -0.134,-0.131 V 71.582 c 0,-0.071 0.061,-0.134 0.134,-0.135 0.615,-0.009 3.315281,0.124469 5.010281,3.346469"
+   id="path3"
+   sodipodi:nodetypes="csssssssscccsssssscc"
+   style="stroke-linecap:round" />
 			<polygon
    fill="none"
    stroke="#000000"
