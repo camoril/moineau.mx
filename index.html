@@ -19,8 +19,8 @@
 
 		:root {
 			--bg: #000000;
-			--text: #ecece0;
-			--muted: #c7c7bb;
+			--text: #f4f4f4;
+			--muted: #cccccc;
 			--line: #2b2b2b;
 		}
 
@@ -103,8 +103,7 @@
 			margin: 0 auto;
 			/* Compensates a slightly off-center SVG artboard from the source file. */
 			transform: translateX(7px);
-			/* Warm off-white tint for dark theme, closer to #ecece0 than pure white. */
-			filter: brightness(0) saturate(100%) invert(91%) sepia(18%) saturate(235%) hue-rotate(12deg) brightness(103%) contrast(92%);
+			filter: invert(1) grayscale(1);
 		}
 
 		html[data-theme="light"] .hero-logo {
