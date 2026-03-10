@@ -440,13 +440,19 @@
 			}
 		}
 
+		function updateThemeSwitchText() {
+			themeSwitch.textContent = currentLang === "es"
+				? (currentTheme === "dark" ? "DIA" : "NOCHE")
+				: (currentTheme === "dark" ? "LIGHT" : "DARK");
+		}
+
 		function applyTheme(theme) {
 			currentTheme = theme;
 			document.documentElement.setAttribute("data-theme", theme);
 			localStorage.setItem("moineauTheme", theme);
-			themeSwitch.textContent = theme === "dark" ? "LIGHT" : "DARK";
+			updateThemeSwitchText();
 			updateControlAria();
-			mobileScrollCta.setAttribute("aria-label", dict["cta.scroll"]);
+			mobileScrollCta.setAttribute("aria-label", (i18n[currentLang] || i18n.en)["cta.scroll"]);
 		}
 
 		function applyLanguage(lang) {
@@ -470,6 +476,8 @@
 			});
 
 			updateControlAria();
+			updateThemeSwitchText();
+			mobileScrollCta.setAttribute("aria-label", dict["cta.scroll"]);
 		}
 
 		langSwitch.addEventListener("click", () => {
