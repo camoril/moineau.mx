@@ -98,7 +98,31 @@
 		}
 
 		.mobile-scroll-cta {
-			display: none;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0;
+			margin: 4.2rem auto 0;
+			padding: 0.58rem 0.75rem;
+			border: 1px solid var(--line);
+			background: transparent;
+			color: var(--text);
+			font: inherit;
+			font-size: 0;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			cursor: pointer;
+			animation: ctaPulse 1.8s ease-in-out infinite;
+		}
+
+		.mobile-scroll-cta::after {
+			content: "↓";
+			font-size: 0.88rem;
+		}
+
+		.mobile-scroll-cta:focus-visible {
+			outline: 2px solid var(--text);
+			outline-offset: 2px;
 		}
 
 		.hero-logo {
@@ -151,7 +175,14 @@
 
 		.hero .statement {
 			max-width: 760px;
-			margin: 4.2rem auto 0;
+			display: none;
+			margin: 0 auto;
+		}
+
+		.hero.text-visible .statement {
+			display: block;
+			margin-top: 2.8rem;
+			animation: revealText 0.35s ease;
 		}
 
 		.statement-block {
@@ -238,43 +269,8 @@
 				align-content: start;
 			}
 
-			.hero .statement {
-				display: none;
-				margin-top: 0;
-			}
-
-			.hero.mobile-text-visible .statement {
-				display: block;
-				margin-top: 2.8rem;
-				animation: revealText 0.35s ease;
-			}
-
 			.mobile-scroll-cta {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				gap: 0;
 				margin: 4.2rem auto 0;
-				padding: 0.58rem 0.75rem;
-				border: 1px solid var(--line);
-				background: transparent;
-				color: var(--text);
-				font: inherit;
-				font-size: 0;
-				letter-spacing: 0.06em;
-				text-transform: uppercase;
-				cursor: pointer;
-				animation: ctaPulse 1.8s ease-in-out infinite;
-			}
-
-			.mobile-scroll-cta::after {
-				content: "↓";
-				font-size: 0.88rem;
-			}
-
-			.mobile-scroll-cta:focus-visible {
-				outline: 2px solid var(--text);
-				outline-offset: 2px;
 			}
 
 			section {
@@ -303,7 +299,7 @@
 				margin-top: 0;
 			}
 
-			.hero.mobile-text-visible .statement {
+			.hero.text-visible .statement {
 				margin-top: 2.35rem;
 			}
 		}
@@ -490,14 +486,12 @@
 		});
 
 		mobileScrollCta.addEventListener("click", () => {
-			if (window.matchMedia("(max-width: 720px)").matches) {
-				heroSection.classList.add("mobile-text-visible");
-				mobileScrollCta.setAttribute("aria-expanded", "true");
-				mobileScrollCta.hidden = true;
-				setTimeout(() => {
-					manifestoText.scrollIntoView({ behavior: "smooth", block: "start" });
-				}, 60);
-			}
+			heroSection.classList.add("text-visible");
+			mobileScrollCta.setAttribute("aria-expanded", "true");
+			mobileScrollCta.hidden = true;
+			setTimeout(() => {
+				manifestoText.scrollIntoView({ behavior: "smooth", block: "start" });
+			}, 60);
 		});
 
 		applyTheme(currentTheme);
