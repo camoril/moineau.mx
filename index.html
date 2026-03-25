@@ -364,6 +364,12 @@
 								</svg>
 								<span class="visually-hidden" data-i18n="contact.email">Enviar correo</span>
 							</a>
+							<a class="contact-icon" id="whatsappLink" href="https://wa.me/+525659003118" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp de MOINEAU" title="WhatsApp">
+								<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+									<path d="M19.05 4.94A9.93 9.93 0 0 0 12.03 2C6.55 2 2.08 6.46 2.08 11.95c0 1.76.46 3.48 1.33 4.99L2 22l5.21-1.37a9.9 9.9 0 0 0 4.8 1.22h.01c5.48 0 9.95-4.46 9.95-9.95a9.88 9.88 0 0 0-2.92-6.96ZM12.02 20.17h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.09.81.83-3.01-.2-.31a8.24 8.24 0 0 1-1.27-4.38c0-4.54 3.69-8.23 8.24-8.23 2.2 0 4.27.85 5.82 2.41a8.17 8.17 0 0 1 2.4 5.83c0 4.54-3.69 8.23-8.24 8.23Zm4.51-6.17c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.13-.56.12-.17.25-.65.81-.8.97-.15.17-.29.19-.54.06-.25-.13-1.04-.38-1.99-1.22-.74-.66-1.23-1.46-1.38-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.41-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.11 0 1.25.9 2.45 1.02 2.62.13.17 1.77 2.7 4.29 3.79.6.26 1.07.42 1.44.54.61.19 1.16.16 1.59.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+								</svg>
+								<span class="visually-hidden" data-i18n="contact.whatsapp">Abrir WhatsApp</span>
+							</a>
 							<a class="contact-icon" id="instagramLink" href="https://www.instagram.com/moineau.mx" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de MOINEAU" title="Instagram">
 								<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 									<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.8A3.7 3.7 0 0 0 3.8 7.5v9a3.7 3.7 0 0 0 3.7 3.7h9a3.7 3.7 0 0 0 3.7-3.7v-9a3.7 3.7 0 0 0-3.7-3.7h-9Zm9.7 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/>
@@ -389,6 +395,7 @@
 				"statement.line4": "La revelación no se contrapone a la estructura o los sistemas.",
 				"cta.scroll": "Ver texto",
 				"contact.email": "Enviar correo",
+				"contact.whatsapp": "Abrir WhatsApp",
 				"contact.instagram": "Abrir Instagram",
 				"doc.title": "MOINEAU — Estudio de arte y joyería"
 			},
@@ -400,6 +407,7 @@
 				"statement.line4": "Revelation is not opposed to structure or system.",
 				"cta.scroll": "Read text",
 				"contact.email": "Send email",
+				"contact.whatsapp": "Open WhatsApp",
 				"contact.instagram": "Open Instagram",
 				"doc.title": "MOINEAU — Art & Jewelry Studio"
 			}
@@ -413,6 +421,7 @@
 		const mobileScrollCta = document.getElementById("mobileScrollCta");
 		const manifestoText = document.getElementById("manifestoText");
 		const emailLink = document.getElementById("emailLink");
+		const whatsappLink = document.getElementById("whatsappLink");
 		const instagramLink = document.getElementById("instagramLink");
 
 		function updateControlAria() {
@@ -424,6 +433,8 @@
 				langSwitch.setAttribute("aria-label", "Switch language");
 				emailLink.setAttribute("aria-label", "Send email to contact@moineau.mx");
 				emailLink.setAttribute("title", "Email");
+				whatsappLink.setAttribute("aria-label", "Open WhatsApp chat with +52 56 5900 3118");
+				whatsappLink.setAttribute("title", "WhatsApp");
 				instagramLink.setAttribute("aria-label", "Open MOINEAU Instagram");
 				instagramLink.setAttribute("title", "Instagram");
 			} else {
@@ -431,6 +442,8 @@
 				langSwitch.setAttribute("aria-label", "Cambiar idioma");
 				emailLink.setAttribute("aria-label", "Enviar correo a contact@moineau.mx");
 				emailLink.setAttribute("title", "Correo");
+				whatsappLink.setAttribute("aria-label", "Abrir chat de WhatsApp con +52 56 5900 3118");
+				whatsappLink.setAttribute("title", "WhatsApp");
 				instagramLink.setAttribute("aria-label", "Abrir Instagram de MOINEAU");
 				instagramLink.setAttribute("title", "Instagram");
 			}
